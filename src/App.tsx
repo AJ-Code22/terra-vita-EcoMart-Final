@@ -14,7 +14,6 @@ import AdminDashboard from "./pages/AdminDashboard";
 import ProductDetail from "./pages/ProductDetail";
 import Checkout from "./pages/Checkout";
 import LiquidEtherBackground from './components/LiquidEtherBackground';
-import { AIChatButton } from './components/AIChatButton';
 import NotFound from "./pages/NotFound";
 import "./App.css";
 
@@ -42,9 +41,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
-        </BrowserRouter>
-        {/* Global bottom-centered AI assistant */}
-        <AIChatButton />
+      </BrowserRouter>
         </div>
       </CartProvider>
       </ThemeProvider>
