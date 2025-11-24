@@ -15,7 +15,9 @@ const MAX_ITEMS = 36;
 
 async function fetchSupabaseItems(): Promise<Item[] | null> {
   try {
-    const { data, error } = await supabase
+    // lib's Database types are not always fully generated in dev environment;
+    // cast to any so `.from('products')` is allowed at runtime.
+    const { data, error } = await (supabase as any)
       .from('products')
       .select('id, name, image_url, affiliate_link, is_active')
       .eq('is_active', true)
@@ -78,7 +80,7 @@ export default function InfiniteMenu() {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className={clsx(styles.container, 'pointer-events-auto') + ' z-[70]'}>
+    <div className={clsx(styles.container, 'pointer-events-auto', 'z-[70]')}>
       <div className={styles.topbar}>
         <div className="flex items-center gap-3">
           <button
@@ -93,16 +95,19 @@ export default function InfiniteMenu() {
       </div>
 
       <div className={clsx(styles.stage, isOpen ? styles.open : styles.closed)}>
-        <div className={styles.ring} aria-hidden>
-          {looped.map((it, idx) => (
-            <a
-              key={`${String(it.id)}-${idx}`}
-              href={it.href || `/product/${it.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.item}
-              title={it.title}
-            >
+        <div className={styles.ring} aria-hidden={true}>
+          {looped.map((it, idx) => {
+            const hrefVal = it.href || `/product/${it.id}`;
+            const isExternal = typeof hrefVal === 'string' && !hrefVal.startsWith('/');
+            return (
+              <a
+                key={`${String(it.id)}-${idx}`}
+                href={hrefVal}
+                target={isExternal ? '_blank' : undefined}
+                rel={isExternal ? 'noopener noreferrer' : undefined}
+                className={styles.item}
+                title={it.title}
+              >
               <img
                 alt={it.title}
                 src={it.image ?? '/placeholder-200.png'}
@@ -110,7 +115,8 @@ export default function InfiniteMenu() {
                 className={styles.itemImg}
               />
             </a>
-          ))}
+          );
+          })}
         </div>
       </div>
     </div>
