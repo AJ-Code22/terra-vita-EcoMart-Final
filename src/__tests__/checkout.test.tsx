@@ -2,13 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import Checkout from '@/pages/Checkout';
+import { supabase } from '@/integrations/supabase/client';
 import { MemoryRouter } from 'react-router-dom';
 import { CartProvider } from '@/contexts/CartContext';
 import { vi } from 'vitest';
 
 // Mock the supabase client
 vi.mock('@/integrations/supabase/client', async () => {
-  const actual = await vi.importActual('@/integrations/supabase/client');
   const supabase = {
     auth: {
       getSession: vi.fn(() => Promise.resolve({ data: { session: { user: { id: 'test-user' } } } })),
@@ -45,5 +45,8 @@ describe('Checkout', () => {
     // After clicking, the order dialog should appear
     const title = await screen.findByText(/Order Placed/i);
     expect(title).toBeInTheDocument();
+
+    // assert that insert was called on the mocked supabase
+    expect((supabase as any).from).toHaveBeenCalled();
   });
 });

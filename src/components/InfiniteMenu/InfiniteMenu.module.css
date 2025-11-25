@@ -1,14 +1,6 @@
-.container {
-  position: fixed;
-  bottom: 22px;
-  left: 18px;
-  right: 18px;
-  pointer-events: auto;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 70;
-}
+
+/* InfiniteMenu removed: styles intentionally left empty to avoid side effects. */
+
 
 .topbar {
   position: absolute;

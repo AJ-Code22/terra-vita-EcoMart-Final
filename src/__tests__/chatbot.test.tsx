@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Chatbot } from '@/components/Chatbot';
+import { supabase } from '@/integrations/supabase/client';
 import { vi } from 'vitest';
 
 vi.mock('@/integrations/supabase/client', async () => {
@@ -16,14 +17,14 @@ vi.mock('@/integrations/supabase/client', async () => {
 describe('Chatbot', () => {
   it('sends message and receives reply', async () => {
     render(<Chatbot />);
-    // Type into input
+    // Type into input and press Enter to submit
     const input = screen.getByPlaceholderText(/Ask anything/i);
-    await userEvent.type(input, 'Hi');
-    // Click send
-    const sendBtn = screen.getByRole('button');
-    await userEvent.click(sendBtn);
+    await userEvent.type(input, 'Hi{Enter}');
     // Await reply
     const reply = await screen.findByText(/Hello there!/i);
     expect(reply).toBeInTheDocument();
+
+    // assert supabase functions.invoke was called
+    expect((supabase as any).functions.invoke).toHaveBeenCalled();
   });
 });
