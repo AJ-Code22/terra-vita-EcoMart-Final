@@ -149,7 +149,7 @@ const BuyerDashboard = () => {
           <div className="container py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                  <img src="/placeholder.svg" alt="Terra Vitta icon" className="h-5 w-5 rounded-md" />
+                  <img src="/logo.svg" alt="EcoMart logo" className="h-5 w-5 rounded-md" />
                 </div>
               <div>
                 <h1 className="text-xl font-bold font-playfair text-foreground">EcoMart</h1>
@@ -284,44 +284,7 @@ const BuyerDashboard = () => {
           </section>
         </main>
 
-        {/* Footer */}
-        <footer className="border-t border-primary/10 py-8">
-          <div className="container">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                <div className="flex items-center gap-3">
-                  <div className="h-8 w-8 rounded-md bg-primary flex items-center justify-center">
-                    <Recycle className="h-5 w-5 text-background" />
-                  </div>
-                  {/* removed trademark footer text */}
-                </div>
-              <div className="flex items-center gap-6 text-sm text-foreground/60 font-medium">
-                <button
-                  onClick={() => window.location.href = '/landing#about'}
-                  className="hover:text-foreground transition-colors"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => window.location.href = '/landing#impact'}
-                  className="hover:text-foreground transition-colors"
-                >
-                  Sustainability
-                </button>
-                <button
-                  className="hover:text-foreground transition-colors"
-                >
-                  Community
-                </button>
-                <button
-                  onClick={() => window.location.href = '/landing#contact'}
-                  className="hover:text-foreground transition-colors"
-                >
-                  Contact
-                </button>
-              </div>
-            </div>
-          </div>
-        </footer>
+        {/* Footer removed as requested for buyer dashboard */}
         </div>
       </div>
     </div>

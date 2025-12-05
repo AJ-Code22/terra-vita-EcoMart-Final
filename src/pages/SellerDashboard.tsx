@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Package, Plus, ShoppingBag, LogOut, Recycle } from "lucide-react";
+import { Package, Plus, ShoppingBag, LogOut } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const SellerDashboard = () => {
             <div>
               <div className="flex items-center gap-3 mb-2">
                 <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                  <Recycle className="h-6 w-6 text-background" />
+                  <img src="/logo.svg" alt="EcoMart logo" className="h-6 w-6" />
                 </div>
                 <h1 className="text-3xl font-bold font-playfair">Seller Dashboard</h1>
               </div>
