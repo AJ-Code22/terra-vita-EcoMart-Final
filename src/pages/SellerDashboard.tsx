@@ -24,9 +24,6 @@ const SellerDashboard = () => {
           <div className="flex justify-between items-start">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                  <img src="/logo.svg" alt="EcoMart logo" className="h-6 w-6" />
-                </div>
                 <h1 className="text-3xl font-bold font-playfair">Seller Dashboard</h1>
               </div>
               <p className="text-foreground/60">List. Deliver. Earn.</p>

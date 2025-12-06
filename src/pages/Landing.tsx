@@ -53,7 +53,6 @@ const Landing = () => {
         <header className="border-b border-primary/10 backdrop-blur-sm">
           <div className="container py-6 flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <img src="/logo.svg" alt="EcoMart logo" className="h-8 w-8 rounded-full" />
                 <span className="text-2xl font-bold font-playfair text-primary">
                   EcoMart
                 </span>
@@ -130,13 +129,15 @@ const Landing = () => {
                 Start Shopping
               </Button>
               <Button 
+                asChild
                 size="lg" 
                 variant="outline"
                 className="glass-button px-8 h-12 font-semibold pop-in"
-                onClick={() => navigate("/buyer")}
               >
-                <Users className="mr-2 h-5 w-5" />
-                Join Community
+                <a href="https://ecomart-seller-ui.vercel.app" target="_blank" rel="noopener noreferrer">
+                  <Users className="mr-2 h-5 w-5" />
+                  Join Community
+                </a>
               </Button>
             </div>
           </div>

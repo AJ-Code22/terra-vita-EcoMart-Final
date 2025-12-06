@@ -148,9 +148,6 @@ const BuyerDashboard = () => {
         <header className="border-b border-primary/10 backdrop-blur-sm">
           <div className="container py-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                  <img src="/logo.svg" alt="EcoMart logo" className="h-5 w-5 rounded-md" />
-                </div>
               <div>
                 <h1 className="text-xl font-bold font-playfair text-foreground">EcoMart</h1>
                 <p className="text-xs text-foreground/60">EcoPoints: <span className="text-primary font-semibold">{points}</span></p>
