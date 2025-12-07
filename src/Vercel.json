@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/buyer$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/landing$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/admin$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/auth$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/checkout$",
+      "dest": "/index.html"
+    },
+
+    {
+      "src": "^/seller$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/seller/dashboard$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/seller/notifications$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/seller/analytics$",
+      "dest": "/index.html"
+    },
+
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}
